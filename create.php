@@ -1,13 +1,10 @@
 <?php
-  session_start();
-  if (!iseet($_SESSION['nama'])) {
-    header("Location: login.php");
-  }
-  include "connection.php";
+ 
+  include "config.php";
     if (isset($_GET['simpan'])) {
-      $id = $_GET['id'];
-      $nama_baju = $_GET['baju'];
-      $data = mysqli_query($mysqli, "insert into stok set id='$id', baju=$'$nama_baju'") or die ("data salah : ".mysqli_error($mysqli));
+      $id = "13123";
+      $nama_baju = "12344s";
+      $data = mysqli_query($db, "insert into 1731710047_detail_pakaian set id_pakaian='$id', nama_pakaian=$'$nama_baju'") or die ("data salah : ".mysqli_error($mysqli));
 
       if ($data) {
         echo "Data Berhasil Diinput";
@@ -15,19 +12,19 @@
           <thead><tr><td width='50'>ID Baju</td><td width='133'>Nama</td>
           </tr></thead></table>";
 
-        $stok=mysqli_query($mysqli,'select * from stok');
+        $stok=mysqli_query($mysqli,'select * from 1731710047_detail_pakaian');
         while ($show = mysqli_fetch_array($stok)) {
           echo "<tr><td>";
-          echo "$show['id']";
+          echo "$show['id_pakaian']";
           echo "</td><td>";
-          echo "$show['baju']";
+          echo "$show['nama_pakaian']";
           echo "</td></tr>";
         }
         echo "</tbody></table>";
-        echo "<br><a href='tampil.php'>Kembali</a>";
+        echo "<br><a href='read.php'>Kembali</a>";
       }else {
         echo "gagal input detail";
-        echo "<br> <a href=tampil.php>Kembali</a>";
+        echo "<br> <a href=read.php>Kembali</a>";
       }
     }
  ?>
