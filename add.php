@@ -1,8 +1,5 @@
 <?php
 	session_start();
-	// if(!isset($_SESSION["nama"])){
-	// 	header("Location: login.php");
-	// }
 	include "connection.php"; //Memangil file koneksi.php untuk menghubungkan ke databases
 
 	if(isset($_GET['simpan'])){
